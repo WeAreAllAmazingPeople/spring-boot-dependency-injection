@@ -4,13 +4,9 @@ import com.switchfully.spring.dependencyinjection.calculator.TaxCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
-//@EnableAutoConfiguration
-//@ComponentScan(basePackages = {"com.switchfully.spring.dependencyinjection.calculator"})
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
@@ -23,7 +19,6 @@ public class Application implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-
     }
 
     @Override
@@ -35,23 +30,3 @@ public class Application implements CommandLineRunner {
         System.out.println("\n\n\n-------------------------------------------------");
     }
 }
-
-
-//@EnableAutoConfiguration()
-//@ComponentScan(basePackages = {"com.switchfully.spring.dependencyinjection.calculator"})
-//@Configuration
-//public class Application {
-//
-//    public static void main(String[] args) {
-//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-//        context.register(SpringConfig.class);
-//        context.refresh();
-//
-//        SpringApplication.run(Application.class, args);
-//
-//        TaxCalculator taxCalculator = (TaxCalculator)context.getBean("TaxCalculator");
-//        double value = taxCalculator.calculateTaxesForIncome(1000);
-//        System.out.println(value);
-//    }
-//
-//}

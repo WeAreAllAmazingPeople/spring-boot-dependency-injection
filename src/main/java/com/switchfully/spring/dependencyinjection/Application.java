@@ -1,18 +1,19 @@
 package com.switchfully.spring.dependencyinjection;
 
 import com.switchfully.spring.dependencyinjection.calculator.TaxCalculator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import javax.inject.Inject;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
     private final ApplicationContext applicationContext;
 
-    @Autowired
+    @Inject
     public Application(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }

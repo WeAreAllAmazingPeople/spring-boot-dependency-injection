@@ -1,6 +1,5 @@
 package com.switchfully.spring.dependencyinjection.calculator;
 
-import com.switchfully.spring.dependencyinjection.calculator.TaxCalculator;
 import com.switchfully.spring.dependencyinjection.calculator.calculations.FrenchTaxCalculation;
 import org.junit.Test;
 import org.junit.runner.RunWith;

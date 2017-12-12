@@ -2,8 +2,9 @@
 
 www.switchfully.com
 
-## Spring-boot-dependency-injection-automated
+## Spring-boot-dependency-injection
 
 - Part of the Spring module.
+- Solution for codelab02 of the _09_spring package
 
-Dependency Injection using Spring Boot's automatic configuration capabilities.
+Dependency Injection using Spring Boot

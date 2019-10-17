@@ -1,16 +1,15 @@
 package com.switchfully.spring.dependencyinjection.calculator;
 
 import com.switchfully.spring.dependencyinjection.calculator.calculations.TaxCalculation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
-@Named
+@Component
 public class TaxCalculator {
 
     private final TaxCalculation taxCalculation;
 
-    @Inject
+    @Autowired
     public TaxCalculator(TaxCalculation taxCalculation) {
         this.taxCalculation = taxCalculation;
     }

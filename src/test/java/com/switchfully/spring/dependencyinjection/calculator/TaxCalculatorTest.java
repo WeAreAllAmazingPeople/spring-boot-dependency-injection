@@ -1,17 +1,16 @@
 package com.switchfully.spring.dependencyinjection.calculator;
 
 import com.switchfully.spring.dependencyinjection.calculator.calculations.FrenchTaxCalculation;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.internal.verification.Times;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class TaxCalculatorTest {
 
     @Mock
@@ -24,12 +23,14 @@ public class TaxCalculatorTest {
     public void calculateTaxesForIncome_verifyThatCalculateTaxesIsCalledWithYearIncome() {
         taxCalculator.calculateTaxesForIncome(25000);
 
-        Mockito.verify(frenchTaxCalculation, new Times(1)).calculateTaxes(25000);
+        verify(frenchTaxCalculation, times(1)).calculateTaxes(25000);
+        // times(1) is the default and can be omitted
+        // https://static.javadoc.io/org.mockito/mockito-core/3.1.0/org/mockito/Mockito.html#verify
     }
 
     @Test
     public void calculateTaxesForIncome_givenCalculatedTaxesOf500_thenReturn500asResult() {
-        Mockito.when(frenchTaxCalculation.calculateTaxes(25000)).thenReturn(500.0);
+        when(frenchTaxCalculation.calculateTaxes(25000)).thenReturn(500.0);
 
         double calculatedTaxes = taxCalculator.calculateTaxesForIncome(25000);
 

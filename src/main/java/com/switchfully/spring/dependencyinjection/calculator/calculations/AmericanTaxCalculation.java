@@ -1,8 +1,8 @@
 package com.switchfully.spring.dependencyinjection.calculator.calculations;
 
-import javax.inject.Named;
+import org.springframework.stereotype.Component;
 
-@Named("AmericanCalculation")
+@Component("AmericanCalculation")
 public class AmericanTaxCalculation implements TaxCalculation {
 
     private static final double AMERICAN_TAX_RATE = 0.18;

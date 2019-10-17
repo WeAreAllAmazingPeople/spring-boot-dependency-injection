@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ApplicationTest {
-    ApplicationContext applicationContext;
+    private final ApplicationContext applicationContext;
 
     @Autowired
     ApplicationTest(ApplicationContext applicationContext) {
@@ -32,9 +32,9 @@ class ApplicationTest {
     }
 
     @Test
-    void givenDefaultSpringConfiguration_whenExecuted_theSpringContextContains31Beans() {
+    void givenDefaultSpringConfiguration_whenExecuted_theSpringContextContains32Beans() {
         // Given
-        int expectedBeanCount = 31;
+        int expectedBeanCount = 32;
         // When
         int actualBeanCount = applicationContext.getBeanDefinitionCount();
         Stream.of(applicationContext.getBeanDefinitionNames()).forEach(System.out::println);

@@ -13,12 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = AmericanTestConfig.class)
 class ApplicationAmericaTest {
-    @Autowired
-    @Qualifier("testAmericanCalculator")
-    TaxCalculator taxCalculator;
+    private final TaxCalculator taxCalculator;
+    private final ApplicationContext applicationContext;
 
     @Autowired
-    ApplicationContext applicationContext;
+    public ApplicationAmericaTest(ApplicationContext applicationContext, @Qualifier("testAmericanCalculator") TaxCalculator taxCalculator){
+        this.applicationContext = applicationContext;
+        this.taxCalculator = taxCalculator;
+    }
 
     @Test
     void givenCustomConfigurationWithAmericanCalculations_whenYearlyIncomeIs2300_thenTaxesAre5090() {
